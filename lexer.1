@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+%}
 
 /* Define token patterns */
 DIGIT       [0-9]
@@ -8,7 +9,8 @@ INTEGER     {DIGIT}+
 WHITESPACE  [ \t\n]+
 
 %%
-/* Token rules */
+
+
 {INTEGER}   { printf("%s,integer\n", yytext); }
 [+\-*/]     { printf("%s,operator\n", yytext); }
 "("         { printf("%s,left_paren\n", yytext); }
