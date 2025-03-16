@@ -1,0 +1,33 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Define token patterns */
+DIGIT       [0-9]
+INTEGER     {DIGIT}+
+WHITESPACE  [ \t\n]+
+
+%%
+/* Token rules */
+{INTEGER}   { printf("%s,integer\n", yytext); }
+[+\-*/]     { printf("%s,operator\n", yytext); }
+"("         { printf("%s,left_paren\n", yytext); }
+")"         { printf("%s,right_paren\n", yytext); }
+{WHITESPACE}    ; /* Ignore whitespace */
+
+%%
+
+int main(int argc, char **argv) {
+    if (argc > 1) {
+        FILE *file = fopen(argv[1], "r");
+        if (!file) {
+            perror("Could not open file");
+            return 1;
+        }
+        yyin = file;
+    }
+    yylex();
+    return 0;
+}
+
+int yywrap() { return 1; }
