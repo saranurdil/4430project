@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include "parser.h"
 %}
 
 /* Define token patterns */
@@ -12,10 +13,16 @@ WHITESPACE  [ \t\n]+
 
 
 {INTEGER}   { printf("%s,integer\n", yytext); }
-[+\-*/]     { printf("%s,operator\n", yytext); }
+"+"     { printf("%s,add_operator\n", yytext); }
+"-"     { printf("%s,subtract_operator\n", yytext); }
+"*"     { printf("%s,multiply_operator\n", yytext); }
+"/"     { printf("%s,divide_operator\n", yytext); }
+
 "("         { printf("%s,left_paren\n", yytext); }
 ")"         { printf("%s,right_paren\n", yytext); }
 {WHITESPACE}    ; /* Ignore whitespace */
+
+.       { printf("Error: Unrecognized token %s\n", yytext);}
 
 %%
 
