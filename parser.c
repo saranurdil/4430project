@@ -21,6 +21,7 @@ typedef struct ASTNode {
 
 char current_token[100];
 char current_token_type[100];
+
 //function that creates new nodes for a tree
 ASTNode* create_node(NodeType type, int value, ASTNode* left, ASTNode* right){
 
@@ -33,5 +34,13 @@ ASTNode* create_node(NodeType type, int value, ASTNode* left, ASTNode* right){
     return node;
 }
 
+// Function to get the next token from the lexer output
+void get_next_token() {
+    if(scanf("%90[^,],%90s", current_token, current_token_type) != 2){ //scan for the token (e.g 2) and its type (e.g. integer)
+        // if scanf did not succeed, clear the current token and its type
+        strcpy(current_token, "");
+        strcpy(current_token_type, "");
+    }
+}
 
 
