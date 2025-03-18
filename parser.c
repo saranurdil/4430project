@@ -87,9 +87,14 @@ ASTNode* term_suffix(ASTNode* left){
 }
 
 // GRAMMAR: <expression_suffix> -> + <term> <expression_suffix> | - <term> <expression_suffix> | ε
-ASTNode* expression_suffix(){
-    //check if current token is +
-    //check if current token is -
+ASTNode* expression_suffix(ASTNode* left){
+    //check if current token is + or -
+    if(strcmp(current_token_type, "add_operator") == 0 || strcmp(current_token_type, "subtract_operator") == 0){
+        get_next_token();
+        ASTNode* factor_node = term();
+        ASTNode* new_node = create_node(NODE_ADD, 0, left, factor_node);
+        return expression_suffix(new_node);
+    }
 }
 
 int main(){
