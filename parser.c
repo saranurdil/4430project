@@ -43,4 +43,7 @@ void get_next_token() {
     }
 }
 
-
+int main(){
+    get_next_token();
+    
+}
