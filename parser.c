@@ -58,6 +58,19 @@ ASTNode* term(){
 // GRAMMAR: <factor> -> ( <expression> ) | <integer>
 ASTNode* factor(){
     //check if current token is "(" -> call expression()
+    if(strcmp(current_token_type, "left_paren") == 0){
+        get_next_token(); //move to the next token (which is the beginning of our expression)
+        ASTNode* inner_expr = expression(); //call expression
+
+        get_next_token(); 
+        return inner_expr;
+    }
+    else if (strcmp(current_token_type, "integer") == 0){
+        int value = current_token;
+        ASTNode* node = create_node(NODE_INTEGER, value, NULL, NULL);
+        get_next_token();
+        return node;
+    }
     //check if current token is and integer
 }
 
