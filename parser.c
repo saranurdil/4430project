@@ -66,7 +66,7 @@ ASTNode* factor(){
         return inner_expr;
     }
     else if (strcmp(current_token_type, "integer") == 0){
-        int value = current_token;
+        int value = atoi(current_token);
         ASTNode* node = create_node(NODE_INTEGER, value, NULL, NULL);
         get_next_token();
         return node;
