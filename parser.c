@@ -19,7 +19,8 @@ typedef struct ASTNode {
     struct ASTNode* right;
 } ASTNode;
 
-
+char current_token;
+char current_token_type;
 //function that creates new nodes for a tree
 ASTNode* create_node(NodeType type, int value, ASTNode* left, ASTNode* right){
 
