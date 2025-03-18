@@ -43,7 +43,23 @@ void get_next_token() {
     }
 }
 
+ASTNode* expression(){
+    
+}
+ASTNode* term(){
+
+}
+ASTNode* factor(){
+
+}
+ASTNode* term_suffix(){
+
+}
+ASTNode* expression_suffix(){
+
+}
+
 int main(){
     get_next_token();
-    
+
 }
