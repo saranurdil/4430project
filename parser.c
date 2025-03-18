@@ -45,14 +45,14 @@ void get_next_token() {
 
 // GRAMMAR: <expression> -> <term> <expression_suffix>
 ASTNode* expression(){
-    //cal term()
-    //call expression_suffix()
+    ASTNode* term_node = parse_term();
+    return expression_suffix(term_node);
 }
 
 // GRAMMAR: <term> -> <factor> <term_suffix>
 ASTNode* term(){
-    //call factor()
-    //call term_suffix()
+    ASTNode* factor_node = factor();
+    return term_suffix(factor_node);
 }
 
 // GRAMMAR: <factor> -> ( <expression> ) | <integer>
