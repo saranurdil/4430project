@@ -45,7 +45,7 @@ void get_next_token() {
 
 // GRAMMAR: <expression> -> <term> <expression_suffix>
 ASTNode* expression(){
-    ASTNode* term_node = parse_term();
+    ASTNode* term_node = term();
     return expression_suffix(term_node);
 }
 
