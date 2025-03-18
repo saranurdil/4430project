@@ -2,6 +2,14 @@
 # Term Project 1
 # Brooke Mesch
 # Sara Nurdil
+To compile and run the project together with the parser enter the following commands in this order (Linux):
+```
+flex lexer.l
+gcc lex.yy.c -o lexer
+gcc parser.c -o parser
+./lexer input.txt | ./parser
+```
+
 # Jude Qubbaj
 
 
