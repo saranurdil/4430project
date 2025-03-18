@@ -95,9 +95,10 @@ ASTNode* term_suffix(ASTNode* left){
         ASTNode* new_node = create_node(NODE_DIVIDE, 0, left, factor_node);
         return term_suffix(new_node);
     }
-    return left;
+    else{
+        return left;
+    }
 }
-
 // GRAMMAR: <expression_suffix> -> + <term> <expression_suffix> | - <term> <expression_suffix> | ε
 ASTNode* expression_suffix(ASTNode* left){
     //check if current token is + or -
@@ -113,6 +114,9 @@ ASTNode* expression_suffix(ASTNode* left){
         ASTNode* new_node = create_node(NODE_SUBTRACT, 0, left, factor_node);
         return expression_suffix(new_node);
     }
+    else{
+        return left;
+    }
 }
 
 void print_tree(ASTNode* node, int indent){
@@ -123,9 +127,7 @@ void print_tree(ASTNode* node, int indent){
         return;
     }
 
-    for(int i = 0; i < indent; i++){
-        printf(" ");
-    }
+    for(int i = 0; i < indent; i++) printf(" ");
     switch(node->type){
         case NODE_INTEGER:
             printf("%d (int)\n", node->value);
