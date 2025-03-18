@@ -19,6 +19,12 @@ typedef struct ASTNode {
     struct ASTNode* right;
 } ASTNode;
 
+ASTNode* expression();
+ASTNode* expression_suffix(ASTNode* left);
+ASTNode* term();
+ASTNode* term_suffix(ASTNode* left);
+ASTNode* factor();
+
 char current_token[100];
 char current_token_type[100];
 
