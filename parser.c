@@ -75,9 +75,15 @@ ASTNode* factor(){
 }
 
 // GRAMMAR: <term_suffix> -> * <factor> <term_suffix> | / <factor> <term_suffix> | ε
-ASTNode* term_suffix(){
-    //check if current token is *
-    //check if current token is /
+ASTNode* term_suffix(ASTNode* left){
+    //check if current token is * or /
+    if(strcmp(current_token_type, "multiple_operator") == 0 || strcmp(current_token_type, "divide_operator") == 0){
+        get_next_token();
+        ASTNode* factor_node = factor();
+        ASTNode* new_node = create_node(NODE_MULTIPLY, 0, left, factor_node);
+        return term_suffix(new_node);
+    }
+    return left;
 }
 
 // GRAMMAR: <expression_suffix> -> + <term> <expression_suffix> | - <term> <expression_suffix> | ε
