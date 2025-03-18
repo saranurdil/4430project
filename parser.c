@@ -43,20 +43,34 @@ void get_next_token() {
     }
 }
 
+// GRAMMAR: <expression> -> <term> <expression_suffix>
 ASTNode* expression(){
-    
+    //cal term()
+    //call expression_suffix()
 }
+
+// GRAMMAR: <term> -> <factor> <term_suffix>
 ASTNode* term(){
-
+    //call factor()
+    //call term_suffix()
 }
+
+// GRAMMAR: <factor> -> ( <expression> ) | <integer>
 ASTNode* factor(){
-
+    //check if current token is "(" -> call expression()
+    //check if current token is and integer
 }
+
+// GRAMMAR: <term_suffix> -> * <factor> <term_suffix> | / <factor> <term_suffix> | ε
 ASTNode* term_suffix(){
-
+    //check if current token is *
+    //check if current token is /
 }
-ASTNode* expression_suffix(){
 
+// GRAMMAR: <expression_suffix> -> + <term> <expression_suffix> | - <term> <expression_suffix> | ε
+ASTNode* expression_suffix(){
+    //check if current token is +
+    //check if current token is -
 }
 
 int main(){
