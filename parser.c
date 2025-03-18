@@ -83,7 +83,7 @@ ASTNode* factor(){
 // GRAMMAR: <term_suffix> -> * <factor> <term_suffix> | / <factor> <term_suffix> | ε
 ASTNode* term_suffix(ASTNode* left){
     //check if current token is * or /
-    if(strcmp(current_token_type, "multiple_operator") == 0){
+    if(strcmp(current_token_type, "multiply_operator") == 0){
         get_next_token();
         ASTNode* factor_node = factor();
         ASTNode* new_node = create_node(NODE_MULTIPLY, 0, left, factor_node);
@@ -127,7 +127,7 @@ void print_tree(ASTNode* node, int indent){
         return;
     }
 
-    for(int i = 0; i < indent; i++) printf(" ");
+    for(int i = 0; i < indent; i++) printf("\t");
     switch(node->type){
         case NODE_INTEGER:
             printf("%d (int)\n", node->value);
