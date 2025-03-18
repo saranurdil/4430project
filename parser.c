@@ -115,7 +115,38 @@ ASTNode* expression_suffix(ASTNode* left){
     }
 }
 
+void print_tree(ASTNode* node){
+
+    //if the tree is empty
+    if (node == NULL){
+        printf("Empty tree.\n");
+        return;
+    }
+
+    int indent_counter = 1;
+    for(int i = 0; i < indent_counter; i++){
+
+        switch(node->type){
+            case NODE_INTEGER:
+                printf("%d (int)\n", node->value);
+                break;
+            case NODE_ADD:
+                break;
+            case NODE_DIVIDE:
+                break;
+            case NODE_MULTIPLY:
+                break;
+            case NODE_SUBTRACT:
+                break;
+        }
+    }
+
+}
 int main(){
     get_next_token();
+    ASTNode* root = expression();
+    print_tree(root);
+
+    return 0;
 
 }
