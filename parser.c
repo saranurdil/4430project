@@ -115,7 +115,7 @@ ASTNode* expression_suffix(ASTNode* left){
     }
 }
 
-void print_tree(ASTNode* node){
+void print_tree(ASTNode* node, int indent){
 
     //if the tree is empty
     if (node == NULL){
@@ -123,29 +123,40 @@ void print_tree(ASTNode* node){
         return;
     }
 
-    int indent_counter = 1;
-    for(int i = 0; i < indent_counter; i++){
-
-        switch(node->type){
-            case NODE_INTEGER:
-                printf("%d (int)\n", node->value);
-                break;
-            case NODE_ADD:
-                break;
-            case NODE_DIVIDE:
-                break;
-            case NODE_MULTIPLY:
-                break;
-            case NODE_SUBTRACT:
-                break;
-        }
+    for(int i = 0; i < indent; i++){
+        printf(" ");
+    }
+    switch(node->type){
+        case NODE_INTEGER:
+            printf("%d (int)\n", node->value);
+            break;
+        case NODE_ADD:
+            printf("+ (Add)\n");
+            print_tree(node->left, indent + 1);
+            print_tree(node->right, indent + 1);
+            break;
+        case NODE_DIVIDE:
+            printf("/ (Divide)\n");
+            print_tree(node->left, indent + 1);
+            print_tree(node->right, indent + 1);
+            break;
+        case NODE_MULTIPLY:
+            printf("* (Multiply)\n");
+            print_tree(node->left, indent + 1);
+            print_tree(node->right, indent + 1);
+            break;
+        case NODE_SUBTRACT:
+            printf("- (Subtract)\n");
+            print_tree(node->left, indent + 1);
+            print_tree(node->right, indent + 1);
+            break;
     }
 
 }
 int main(){
     get_next_token();
     ASTNode* root = expression();
-    print_tree(root);
+    print_tree(root, 0);
 
     return 0;
 
