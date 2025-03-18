@@ -447,10 +447,9 @@ char *yytext;
 #line 2 "lexer.l"
 #include <stdio.h>
 #include <stdlib.h>
-#include "parser.h"
-#line 453 "lex.yy.c"
+#line 451 "lex.yy.c"
 /* Define token patterns */
-#line 455 "lex.yy.c"
+#line 453 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -667,11 +666,11 @@ YY_DECL
 		}
 
 	{
-#line 13 "lexer.l"
+#line 11 "lexer.l"
 
 
 
-#line 676 "lex.yy.c"
+#line 674 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -730,56 +729,56 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 16 "lexer.l"
+#line 14 "lexer.l"
 { printf("%s,integer\n", yytext); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 17 "lexer.l"
+#line 15 "lexer.l"
 { printf("%s,add_operator\n", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 "lexer.l"
+#line 16 "lexer.l"
 { printf("%s,subtract_operator\n", yytext); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "lexer.l"
+#line 17 "lexer.l"
 { printf("%s,multiply_operator\n", yytext); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "lexer.l"
+#line 18 "lexer.l"
 { printf("%s,divide_operator\n", yytext); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 22 "lexer.l"
+#line 20 "lexer.l"
 { printf("%s,left_paren\n", yytext); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 23 "lexer.l"
+#line 21 "lexer.l"
 { printf("%s,right_paren\n", yytext); }
 	YY_BREAK
 case 8:
 /* rule 8 can match eol */
 YY_RULE_SETUP
-#line 24 "lexer.l"
+#line 22 "lexer.l"
 ; /* Ignore whitespace */
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 26 "lexer.l"
+#line 24 "lexer.l"
 { printf("Error: Unrecognized token %s\n", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 28 "lexer.l"
+#line 26 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 784 "lex.yy.c"
+#line 782 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1784,7 +1783,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 28 "lexer.l"
+#line 26 "lexer.l"
 
 
 int main(int argc, char **argv) {
