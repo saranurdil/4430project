@@ -1,5 +1,5 @@
 # CSCE 4430 - Term Project 1
-# By Brooke Mesch, Sara Nurdil, Jude Qubbaj
+## By Brooke Mesch, Sara Nurdil, and Jude Qubbaj
 
 ## Project Description
 This project is a lexical analyzer implemented using Flex. It tokenizes simple arithmetic expressions consisting of integers, operators, and parentheses. Before running the lexer, ensure your input.txt file(s) already exist. The output is printed to the console, redirect as needed. 
